@@ -50,12 +50,14 @@
 		C20AC4331B4E62A200334D71 /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = C20AC40C1B4E62A200334D71 /* UIImageView+WebCache.m */; };
 		C20AC4341B4E62A200334D71 /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = C20AC40E1B4E62A200334D71 /* UIView+WebCacheOperation.m */; };
 		C20AC4351B4E62A200334D71 /* SignatrueEncryption.m in Sources */ = {isa = PBXBuildFile; fileRef = C20AC4121B4E62A200334D71 /* SignatrueEncryption.m */; };
+		C20AC4381B4E69A000334D71 /* FunnyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C20AC4371B4E69A000334D71 /* FunnyTableViewCell.m */; };
+		C20AC43B1B4E741F00334D71 /* DBHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C20AC43A1B4E741F00334D71 /* DBHelper.m */; };
+		C20AC43E1B4E743E00334D71 /* News.m in Sources */ = {isa = PBXBuildFile; fileRef = C20AC43D1B4E743E00334D71 /* News.m */; };
 		C26EC5191B4E1A46001C8729 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C26EC5181B4E1A46001C8729 /* main.m */; };
 		C26EC51C1B4E1A46001C8729 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C26EC51B1B4E1A46001C8729 /* AppDelegate.m */; };
 		C26EC5201B4E1A46001C8729 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C26EC51F1B4E1A46001C8729 /* Images.xcassets */; };
 		C26EC5231B4E1A46001C8729 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C26EC5211B4E1A46001C8729 /* LaunchScreen.xib */; };
 		C26EC52F1B4E1A46001C8729 /* Sort_News_01Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = C26EC52E1B4E1A46001C8729 /* Sort_News_01Tests.m */; };
-		C26EC5661B4E1E85001C8729 /* RootTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = C26EC5651B4E1E85001C8729 /* RootTabBarController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -159,6 +161,12 @@
 		C20AC4101B4E62A200334D71 /* CommonDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonDefine.h; sourceTree = "<group>"; };
 		C20AC4111B4E62A200334D71 /* SignatrueEncryption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignatrueEncryption.h; sourceTree = "<group>"; };
 		C20AC4121B4E62A200334D71 /* SignatrueEncryption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignatrueEncryption.m; sourceTree = "<group>"; };
+		C20AC4361B4E69A000334D71 /* FunnyTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FunnyTableViewCell.h; sourceTree = "<group>"; };
+		C20AC4371B4E69A000334D71 /* FunnyTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FunnyTableViewCell.m; sourceTree = "<group>"; };
+		C20AC4391B4E741F00334D71 /* DBHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBHelper.h; sourceTree = "<group>"; };
+		C20AC43A1B4E741F00334D71 /* DBHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBHelper.m; sourceTree = "<group>"; };
+		C20AC43C1B4E743E00334D71 /* News.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = News.h; sourceTree = "<group>"; };
+		C20AC43D1B4E743E00334D71 /* News.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = News.m; sourceTree = "<group>"; };
 		C26EC5131B4E1A46001C8729 /* Sort_News_01.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sort_News_01.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C26EC5171B4E1A46001C8729 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C26EC5181B4E1A46001C8729 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -169,8 +177,6 @@
 		C26EC5281B4E1A46001C8729 /* Sort_News_01Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Sort_News_01Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C26EC52D1B4E1A46001C8729 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C26EC52E1B4E1A46001C8729 /* Sort_News_01Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Sort_News_01Tests.m; sourceTree = "<group>"; };
-		C26EC5641B4E1E85001C8729 /* RootTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RootTabBarController.h; path = ../Scenes/ViewController/RootTabBarController.h; sourceTree = "<group>"; };
-		C26EC5651B4E1E85001C8729 /* RootTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RootTabBarController.m; path = ../Scenes/ViewController/RootTabBarController.m; sourceTree = "<group>"; };
 		C26EC5791B4E233B001C8729 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PrefixHeader.pch; path = Vendors/PrefixHeader.pch; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -440,8 +446,6 @@
 			children = (
 				C26EC51A1B4E1A46001C8729 /* AppDelegate.h */,
 				C26EC51B1B4E1A46001C8729 /* AppDelegate.m */,
-				C26EC5641B4E1E85001C8729 /* RootTabBarController.h */,
-				C26EC5651B4E1E85001C8729 /* RootTabBarController.m */,
 			);
 			path = AppDelegate;
 			sourceTree = "<group>";
@@ -473,6 +477,8 @@
 		C26EC53F1B4E1CCD001C8729 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				C20AC4361B4E69A000334D71 /* FunnyTableViewCell.h */,
+				C20AC4371B4E69A000334D71 /* FunnyTableViewCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -480,6 +486,8 @@
 		C26EC5401B4E1CCD001C8729 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				C20AC4391B4E741F00334D71 /* DBHelper.h */,
+				C20AC43A1B4E741F00334D71 /* DBHelper.m */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -494,6 +502,8 @@
 		C26EC5421B4E1CCD001C8729 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				C20AC43C1B4E743E00334D71 /* News.h */,
+				C20AC43D1B4E743E00334D71 /* News.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -654,10 +664,12 @@
 				C20AC42D1B4E62A200334D71 /* SDWebImagePrefetcher.m in Sources */,
 				C20AC3AD1B4E493700334D71 /* LocalTableViewController.m in Sources */,
 				C20AC3B91B4E53A700334D71 /* AboutView.m in Sources */,
-				C26EC5661B4E1E85001C8729 /* RootTabBarController.m in Sources */,
 				C20AC4341B4E62A200334D71 /* UIView+WebCacheOperation.m in Sources */,
+				C20AC43E1B4E743E00334D71 /* News.m in Sources */,
 				C20AC41C1B4E62A200334D71 /* AFNetworkActivityIndicatorManager.m in Sources */,
+				C20AC4381B4E69A000334D71 /* FunnyTableViewCell.m in Sources */,
 				C20AC42B1B4E62A200334D71 /* SDWebImageDownloaderOperation.m in Sources */,
+				C20AC43B1B4E741F00334D71 /* DBHelper.m in Sources */,
 				C20AC41B1B4E62A200334D71 /* AFURLSessionManager.m in Sources */,
 				C20AC4151B4E62A200334D71 /* AFHTTPSessionManager.m in Sources */,
 				C20AC4241B4E62A200334D71 /* GDataXMLNode.m in Sources */,
