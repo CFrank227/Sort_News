@@ -7,11 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Funny.h"
 
 @interface FunnyTableViewCell : UITableViewCell
 
-@property (nonatomic, retain) UILabel *contentLabel;
 
+
+@property (nonatomic, retain) UILabel *contentLabel;
+@property (nonatomic, retain) UILabel *logoLabel;
 // 自定义初始化方法
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier;
 
