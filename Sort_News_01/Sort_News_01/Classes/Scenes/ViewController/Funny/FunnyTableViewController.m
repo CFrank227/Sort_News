@@ -8,9 +8,16 @@
 
 #import "FunnyTableViewController.h"
 #import "FunnyTableViewCell.h"
+#import "Funny.h"
+#import "MJRefresh.h"
+
 
 
 @interface FunnyTableViewController ()
+
+@property (nonatomic, retain) NSMutableArray *allDataArray;
+@property (nonatomic, assign) CGFloat cellHeight;
+- (void)loadData;
 
 @end
 
@@ -18,21 +25,68 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self loadData];
     
+    // 下拉刷新
+    [self.tableView addHeaderWithTarget:self action:@selector(headerRereshing)];
     
     [self.tableView registerClass:[FunnyTableViewCell class] forCellReuseIdentifier:@"reuseIdentifier"];
+    // http://v.youku.com/v_show/id_XNjIyMjY4MjM2.html?from=y1.2-2.4.1
+    NSString *videoUrl = @"http://v.youku.com/v_show/id_XNjIyMjY4MjM2.html?from=y1.2-2.4.1";
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+//    UIVideoEditorController *uiVideo = [UIVideoEditorController canEditVideoAtPath:videoUrl];
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    
 }
+
+- (void)loadData
+{
+    self.allDataArray = [NSMutableArray array];
+    __block typeof(self) weakSelf = self;
+    NSString *urlStr = @"http://zzd.sm.cn/appservice/api/v1/channel/1670553277?bid=997&count=20&recoid=5657476440874081234&client_version=2.1.0.1&summary=1&content_cnt=20&city=010&m_ch=000&ftime=1436255369075&summary_len=0&client_os=ios&sn=1b16325fd47a283b282a3ed8eb70ef30&method=new";
+    NSURL *url = [NSURL URLWithString:urlStr];
+    NSMutableURLRequest *mutableRequest = [NSMutableURLRequest requestWithURL:url];
+    [NSURLConnection sendAsynchronousRequest:mutableRequest queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+//        NSLog(@"%@", data);
+      NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
+//        NSLog(@"%@", dict);
+        NSDictionary *dict2 = [dict objectForKey:@"data"];
+        NSArray *array = [dict2 objectForKey:@"article"];
+        for (NSDictionary *item in array) {
+            Funny *funny = [Funny new];
+            [funny setValuesForKeysWithDictionary:item];
+//            NSLog(@"%@", funny);
+            [weakSelf.allDataArray addObject:funny];
+        }
+        [weakSelf.tableView reloadData];
+    }];
+}
+
+
+
+
+
+- (void)headerRereshing
+{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        
+        [self loadData];
+//        NSLog(@"刷新了数据");
+        [self.tableView headerEndRefreshing];
+    });
+}
+
+//- (void)
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
 
 #pragma mark - Table view data source
 
@@ -43,9 +97,9 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return 10;
+    NSLog(@"count %ld", _allDataArray.count);
+    return _allDataArray.count;
 }
-
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
@@ -55,19 +109,44 @@
     if (!cell) {
         cell = [[FunnyTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:reuse];
     }
-    cell.contentLabel.text = @"这里将会显示所有信息";
+    Funny *funny = _allDataArray[indexPath.row];
+//    NSLog(@" 内容  %@", funny.summary);
+    NSString *text = funny.summary;
+    cell.contentLabel.text = text;
+//    cell.contentLabel.backgroundColor = [UIColor cyanColor];
+    CGSize maxSize = CGSizeMake(300, CGFLOAT_MAX);
+    NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys: cell.contentLabel.font, NSFontAttributeName, nil];
     
-    static NSString *reuseIdent = @"reuserIdentifier";
-    FunnyTableViewCell *cell2 = [tableView dequeueReusableCellWithIdentifier:reuseIdent];
+//    NSDictionary *frontDict = @{   };
+    
+    CGRect rect = [text boundingRectWithSize:maxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:dict context:nil];
+    
+    
+    
+    NSLog(@"height %f", rect.size.height);
+    _cellHeight = rect.size.height;
+    
+    
+    
+    CGRect logoLabelFrame = cell.logoLabel.frame;
+    logoLabelFrame.origin.y = rect.size.height;
+    NSLog(@"logola %f", logoLabelFrame.size.height);
+    cell.logoLabel.frame = logoLabelFrame;
+//    cell.logoLabel.frame.
     
     
     
     
+    cell.contentLabel.frame = CGRectMake(10, 5, 355, rect.size.height);
     
     
     return cell;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return  _cellHeight + 20;
+}
 
 /*
 // Override to support conditional editing of the table view.
