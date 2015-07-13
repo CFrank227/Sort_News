@@ -1,0 +1,29 @@
+//
+//  PrefixHeader.pch
+//  Sort_News_01
+//
+//  Created by lanou3g on 15/7/9.
+//  Copyright (c) 2015年 Frank. All rights reserved.
+//
+
+#ifndef Sort_News_01_PrefixHeader_pch
+#define Sort_News_01_PrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#import "GroomTableViewController.h"
+#import "HotTableViewController.h"
+#import "LocalTableViewController.h"
+#import "TechnologyTableViewController.h"
+#import "FunnyTableViewController.h"
+#import "MoreView.h"
+#import "AboutView.h"
+#import "MoreViewController.h"
+#import "AFNetworking.h"
+#import "UIImageView+WebCache.h"
+#import <UIKit/UIKit.h>
+
+
+
+#endif
